@@ -1,7 +1,6 @@
 package play.demo.security;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.annotation.Lazy;
@@ -39,7 +38,7 @@ public class FilterJwt extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         String path = request.getRequestURI();
-        if (path.equals("/regester") || path.equals("/login") || path.equals("/api/products") || path.equals("/api/products/")) {
+        if (path.equals("/api/auth/regester") || path.equals("/api/auth/login") || path.equals("/api/products") || path.equals("/api/products/")) {
             filterChain.doFilter(request, response);
             return;
         }

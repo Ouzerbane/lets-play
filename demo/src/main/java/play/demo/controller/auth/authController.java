@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import play.demo.dto.authDto.loginDto;
 import play.demo.dto.authDto.regesterDto;
-import play.demo.service.authService;
+import play.demo.service.auth.authService;
 import play.demo.utils.ApiResponse;
 
 @RestController

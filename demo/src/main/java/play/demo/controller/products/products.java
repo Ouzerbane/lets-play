@@ -16,7 +16,7 @@ import play.demo.Entity.auth.Auth;
 import play.demo.dto.prodectDto.proderctEditReqDto;
 import play.demo.dto.prodectDto.proderctReqDto;
 import play.demo.reposetory.auth.prodectRepository;
-import play.demo.service.prodectService;
+import play.demo.service.prodect.prodectService;
 import play.demo.utils.ApiResponse;
 
 @RestController

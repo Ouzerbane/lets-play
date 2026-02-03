@@ -1,4 +1,4 @@
-package play.demo.service;
+package play.demo.service.prodect;
 
 import java.util.List;
 
