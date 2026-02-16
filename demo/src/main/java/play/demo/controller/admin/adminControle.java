@@ -2,6 +2,7 @@ package play.demo.controller.admin;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ public class adminControle {
         this.adminService = adminService ;
     }   
 
-    @DeleteMapping("delet-post/{id}")
+    @DeleteMapping("delet-product/{id}")
     public ResponseEntity<?> DeletProdect(@PathVariable String id){
         ApiResponse<?> res = adminService.DeletProdect(id);
         return  ResponseEntity.ok(res);
@@ -32,5 +33,10 @@ public class adminControle {
         return  ResponseEntity.ok(res);
     }
 
+    // @PatchMapping()
+    @GetMapping("get-users")
+    public ResponseEntity<?> GetUsers(){
+        return ResponseEntity.ok(adminService.Getuser());
+    }  
 
 }
