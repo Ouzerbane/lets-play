@@ -13,14 +13,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import play.demo.exception.CustomAccessDeniedHandler;
+
 @Configuration
 @EnableWebSecurity
 public class config extends AbstractMongoClientConfiguration {
 
     private FilterJwt FilterJwt ;
+    private CustomAccessDeniedHandler customAccessDeniedHandler;
 
-    public config(FilterJwt FilterJwt){
+    public config(FilterJwt FilterJwt, CustomAccessDeniedHandler customAccessDeniedHandler){
         this.FilterJwt = FilterJwt ; 
+        this.customAccessDeniedHandler = customAccessDeniedHandler;
     }
 
     @Override
@@ -45,6 +49,7 @@ public class config extends AbstractMongoClientConfiguration {
                         .requestMatchers(HttpMethod.GET, "/api/products/").permitAll()
                         .anyRequest().authenticated())
                 .logout(logout -> logout.disable())
+                .exceptionHandling(exceptions -> exceptions.accessDeniedHandler(customAccessDeniedHandler))
                 .addFilterBefore(FilterJwt, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

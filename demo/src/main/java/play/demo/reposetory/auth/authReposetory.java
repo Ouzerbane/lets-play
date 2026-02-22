@@ -11,4 +11,6 @@ public interface authReposetory extends MongoRepository<Auth, String> {
 
     Optional<Auth> findByEmailOrUsername(String email, String username);
 
+    boolean existsByRole(String role);
+
 }
